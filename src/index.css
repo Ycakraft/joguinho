@@ -1,0 +1,160 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 96.1%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Game Colors */
+    --player1: 0 70% 50%;
+    --player2: 130 70% 40%;
+    --coin: 45 90% 50%;
+    --enemy: 0 60% 40%;
+    --ground: 30 50% 40%;
+    --sky: 210 80% 75%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Press Start 2P', system-ui, sans-serif;
+  }
+}
+
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  font-display: swap;
+}
+
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Game specific classes */
+.player {
+  @apply absolute transition-transform;
+  width: 40px;
+  height: 60px;
+}
+
+.player-1 {
+  @apply bg-[hsl(var(--player1))];
+}
+
+.player-2 {
+  @apply bg-[hsl(var(--player2))];
+}
+
+.platform {
+  @apply absolute bg-[hsl(var(--ground))] border-2 border-black;
+}
+
+.coin {
+  @apply absolute bg-[hsl(var(--coin))] rounded-full;
+  width: 20px;
+  height: 20px;
+}
+
+.enemy {
+  @apply absolute bg-[hsl(var(--enemy))];
+  width: 40px;
+  height: 30px;
+}
+
+.game-container {
+  @apply relative overflow-hidden border-4 border-black rounded-lg;
+  width: 800px;
+  height: 600px;
+  background: linear-gradient(to bottom, hsl(var(--sky)), white);
+}
+
+.score-container {
+  @apply flex justify-between mb-4 text-xl font-bold;
+}
+
+.player1-score {
+  @apply text-[hsl(var(--player1))];
+}
+
+.player2-score {
+  @apply text-[hsl(var(--player2))];
+}
+
+.controls {
+  @apply mt-4 p-4 bg-white rounded-lg shadow-md;
+}
+
+.controls h3 {
+  @apply text-xl font-bold mb-2;
+}
+
+.controls p {
+  @apply mb-2;
+}
